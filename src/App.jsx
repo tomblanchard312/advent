@@ -5,8 +5,9 @@ import { getDoors } from './data/doors'
 import './App.css'
 
 function App() {
+  const currentYear = new Date().getFullYear()
   const [doors, setDoors] = useState(() => {
-    const saved = localStorage.getItem('adventDoors2025')
+    const saved = localStorage.getItem(`adventDoors${currentYear}`)
     if (saved) {
       const openedDoors = JSON.parse(saved)
       return getDoors().map(door => ({
@@ -21,16 +22,19 @@ function App() {
   const [isInfoOpen, setIsInfoOpen] = useState(false)
 
   const today = new Date()
-  const currentYear = today.getFullYear()
   const currentMonth = today.getMonth() // 0-based
   const currentDay = today.getDate()
   
-  const todaysDoor = (currentYear === 2025 && currentMonth === 11 && currentDay >= 1 && currentDay <= 24) ? currentDay : null
+  const todaysDoor = (currentMonth === 11 && currentDay >= 1 && currentDay <= 24) ? currentDay : null
 
   useEffect(() => {
     const openedDoors = doors.filter(door => door.isOpen).map(door => door.number)
-    localStorage.setItem('adventDoors2025', JSON.stringify(openedDoors))
-  }, [doors])
+    localStorage.setItem(`adventDoors${currentYear}`, JSON.stringify(openedDoors))
+  }, [doors, currentYear])
+
+  useEffect(() => {
+    document.title = `Advent Calendar ${currentYear}`
+  }, [currentYear])
 
   const handleDoorClick = (doorNumber) => {
     const door = doors.find(d => d.number === doorNumber)
@@ -122,7 +126,7 @@ function App() {
             <h3>What is an Advent Calendar?</h3>
             <p>An Advent Calendar is a special calendar used to count down the days of Advent, the four weeks leading up to Christmas. Traditionally, each day features a small gift, chocolate, or message.</p>
             <p>This digital version brings the magic to your screen! Click on each door to reveal festive surprises, characters, and messages leading up to Christmas Day.</p>
-            <p>The calendar runs from December 1st to December 24th, 2025. Your progress is saved automatically.</p>
+            <p>The calendar runs from December 1st to December 24th, {currentYear}. Your progress is saved automatically.</p>
           </div>
         </div>
       )}

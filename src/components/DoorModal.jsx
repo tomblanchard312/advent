@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Character from './Character'
 import './DoorModal.css'
 
-function DoorModal({ door, onClose, year = 2025 }) {
+function DoorModal({ door, onClose, year = new Date().getFullYear() }) {
   return (
     <AnimatePresence>
       <motion.div
