@@ -34,7 +34,3 @@ lerna-debug.log*
 *.sln
 *.sw?
 
-# Old Go files (if keeping for reference)
-advent.exe
-*.exe
-

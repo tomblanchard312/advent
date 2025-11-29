@@ -21,11 +21,13 @@ A beautiful, interactive web-based advent calendar built with React, featuring e
 ### Installation
 
 1. Install dependencies:
+
    ```bash
    npm install
    ```
 
 2. Start the development server:
+
    ```bash
    npm run dev
    ```
@@ -85,9 +87,9 @@ advent/
 
 ## 🎯 Customization
 
-### Change Characters
+### Change Characters & Messages
 
-Edit `src/data/doors.js` to modify the character types and messages for each day.
+Edit `src/data/doors.js` to modify the character types and messages for each day. Keep both arrays at length 24; elements are positionally matched (index → day).
 
 ### Modify Animations
 
@@ -110,14 +112,16 @@ All color schemes can be customized in the respective CSS files. The app uses a 
 
 ### Automatic Deployment (Recommended)
 
-This project includes a GitHub Actions workflow that automatically deploys to GitHub Pages when you push to the `main` or `master` branch.
+This project includes a GitHub Actions workflow that automatically deploys to GitHub Pages when you push to the `main` branch.
 
 1. **Enable GitHub Pages**:
+
    - Go to your repository on GitHub
    - Navigate to **Settings** → **Pages**
    - Under **Source**, select **GitHub Actions**
 
 2. **Push your code**:
+
    ```bash
    git add .
    git commit -m "Initial commit"
@@ -134,15 +138,18 @@ This project includes a GitHub Actions workflow that automatically deploys to Gi
 If you prefer to deploy manually:
 
 1. **Install gh-pages** (if not already installed):
+
    ```bash
    npm install --save-dev gh-pages
    ```
 
 2. **Update the base path** in `vite.config.js`:
+
    - If your repository is named `advent`, the base is already set correctly
    - If your repository has a different name, update the `base` path in `vite.config.js` to match: `base: '/your-repo-name/'`
 
 3. **Deploy**:
+
    ```bash
    npm run deploy
    ```
