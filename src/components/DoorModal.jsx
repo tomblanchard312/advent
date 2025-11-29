@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Character from './Character'
 import './DoorModal.css'
 
-function DoorModal({ door, onClose }) {
+function DoorModal({ door, onClose, year = 2025 }) {
   return (
     <AnimatePresence>
       <motion.div
@@ -29,7 +29,7 @@ function DoorModal({ door, onClose }) {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
-            <h2>Day {door.number} — Advent 2025</h2>
+            <h2>Day {door.number} — Advent {year}</h2>
           </motion.div>
 
           <motion.div

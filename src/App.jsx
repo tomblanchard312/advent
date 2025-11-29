@@ -89,7 +89,7 @@ function App() {
         </div>
         <h1 className="title">
           <span className="title-icon">🎄</span>
-          Advent Calendar 2025
+          Advent Calendar {currentYear}
           <span className="title-icon">🎄</span>
         </h1>
         <p className="subtitle">Click on a door to reveal the surprise!</p>
@@ -111,6 +111,7 @@ function App() {
         <DoorModal
           door={selectedDoor}
           onClose={closeModal}
+          year={currentYear}
         />
       )}
 
