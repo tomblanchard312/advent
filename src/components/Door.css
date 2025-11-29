@@ -135,3 +135,18 @@
   }
 }
 
+@media (max-width: 480px) {
+  .door {
+    width: 80px;
+    height: 96px;
+  }
+  
+  .door-number {
+    font-size: 1.5rem;
+  }
+  
+  .door-character-preview {
+    font-size: 2rem;
+  }
+}
+
